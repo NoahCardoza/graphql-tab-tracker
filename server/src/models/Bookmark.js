@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Bookmark = sequelize.define('bookmark', {
+  const Bookmark = sequelize.define('bookmark', {}, {
     indexes: [
       {
         fields: ['userId', 'songId'],
