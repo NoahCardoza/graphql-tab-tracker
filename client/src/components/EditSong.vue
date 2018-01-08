@@ -68,9 +68,9 @@ export default {
     song () {
       return SongsServices.get(this.$store.state.route.params.id)
         .then(res => {
-            document.title = `Edit: ${res.data.title}`
-            return res.data
-          })
+          document.title = `Edit: ${res.data.title}`
+          return res.data
+        })
     },
     songDefault: {}
   },
