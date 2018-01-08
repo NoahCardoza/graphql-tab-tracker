@@ -15,7 +15,6 @@ export default {
   asyncData: {
     bookmarks () {
       return BookmarksServices.index()
-        .then(res => res.data)
     }
   }
 }
