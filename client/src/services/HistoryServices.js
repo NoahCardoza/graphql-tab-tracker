@@ -1,7 +1,9 @@
-import API from './API'
+import R from 'ramda'
+import { simpleSong, Query } from './GraphQLClient'
 
 export default {
   index () {
-    return API().get('history')
+    return Query('history', {}, [ simpleSong ]).send()
+    .then(R.map(R.prop('song')))
   }
 }

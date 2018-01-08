@@ -15,7 +15,6 @@ export default {
   asyncData: {
     history () {
       return HistoryServices.index()
-        .then(res => res.data)
     }
   }
 }

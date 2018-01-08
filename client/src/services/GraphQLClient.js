@@ -4,7 +4,7 @@ import GraphQLClient from 'graphql-query-constructor'
 import axios from 'axios'
 import store from '@/store/store'
 
-const sendQuery = (payload) =>
+const sendQuery = (payload, fields) =>
   axios.post(
     'http://localhost:8081/graphql',
     payload, {
@@ -17,8 +17,21 @@ const sendQuery = (payload) =>
     if (json.errors) {
       throw json.errors.map(R.prop('message'))
     }
-    return json.data
+    return (fields.length === 1
+      ? json.data[fields[0]]
+      : json.data
+    )
   })
+
+export const simpleSongKeys = [
+  'id',
+  'title',
+  'album',
+  'artist',
+  'genre',
+  'albumImageUrl'
+]
+
 // axios.post({
 //   baseURL: 'http://localhost:8081/',
 //   headers: {
@@ -30,5 +43,7 @@ const sendQuery = (payload) =>
 const Client = GraphQLClient(sendQuery)
 
 export const { Query, Mutation } = Client
+
+export const simpleSong = Query('song', {}, simpleSongKeys)
 
 export default Client

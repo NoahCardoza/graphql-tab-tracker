@@ -1,20 +1,12 @@
 import R from 'ramda'
 import API from './API'
-import { Query } from './GraphQLClient'
+import { simpleSong, Query } from './GraphQLClient'
 
 export default {
   index () {
     return Query('bookmarks', {}, [
-      Query('song', {}, [
-        'id',
-        'title',
-        'album',
-        'artist',
-        'genre',
-        'albumImageUrl'
-      ])
+      simpleSong
     ]).send()
-    .then(R.prop('bookmarks'))
     .then(R.map(R.prop('song')))
   },
   delete (songId) {
