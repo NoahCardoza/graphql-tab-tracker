@@ -10,7 +10,7 @@
         <router-link to="edit" append>
           <el-button to="edit">Edit</el-button>
         </router-link>
-        <el-button v-if='$store.state.loggedIn' @click="toggleBookmark">{{bookmarkButton}}</el-button>
+        <el-button v-if='$store.state.isLoggedIn' @click="toggleBookmark">{{bookmarkButton}}</el-button>
       </el-tab-pane>
       <el-tab-pane label="Video">
         <youtube
