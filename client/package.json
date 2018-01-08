@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "element-ui": "^2.0.9",
+    "graphql-query-constructor": "^1.0.0",
     "loadash": "^1.0.0",
     "vue": "^2.5.2",
     "vue-async-data-2": "0.0.2",
